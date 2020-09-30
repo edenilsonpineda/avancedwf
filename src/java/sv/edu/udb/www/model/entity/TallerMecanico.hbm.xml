@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-27-2020 09:55:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="proyecto" name="sv.edu.udb.www.model.entity.TallerMecanico" optimistic-lock="version" table="taller_mecanico">
+    <id name="idTallerMecanico" type="java.lang.Integer">
+      <column name="id_taller_mecanico"/>
+      <generator class="foreign">
+        <param name="property">inventario</param>
+      </generator>
+    </id>
+    <one-to-one class="sv.edu.udb.www.model.entity.Inventario" constrained="true" name="inventario"/>
+    <property name="nombreTaller" type="string">
+      <column length="50" name="nombre_taller" not-null="true"/>
+    </property>
+    <property name="combustibleTallerMecanico" type="string">
+      <column length="30" name="combustible_taller_mecanico" not-null="true"/>
+    </property>
+    <property name="mantenimientoTallerMecanico" type="string">
+      <column length="300" name="mantenimiento_taller_mecanico" not-null="true"/>
+    </property>
+    <property name="idInventario" type="int">
+      <column name="id_inventario" not-null="true"/>
+    </property>
+    <property name="adicionales" type="string">
+      <column length="50" name="adicionales" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

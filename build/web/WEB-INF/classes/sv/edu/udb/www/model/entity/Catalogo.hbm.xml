@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-27-2020 09:55:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="proyecto" name="sv.edu.udb.www.model.entity.Catalogo" optimistic-lock="version" table="catalogo">
+    <id name="idCatalogo" type="java.lang.Integer">
+      <column name="id_catalogo"/>
+      <generator class="identity"/>
+    </id>
+    <property name="tipoMantenimiento" type="string">
+      <column length="50" name="tipo_mantenimiento" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="300" name="descripcion" not-null="true"/>
+    </property>
+    <one-to-one class="sv.edu.udb.www.model.entity.Servicios" name="servicios"/>
+  </class>
+</hibernate-mapping>

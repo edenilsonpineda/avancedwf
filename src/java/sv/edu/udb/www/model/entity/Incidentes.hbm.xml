@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-27-2020 09:55:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="proyecto" name="sv.edu.udb.www.model.entity.Incidentes" optimistic-lock="version" table="incidentes">
+    <id name="idIncidentes" type="java.lang.Integer">
+      <column name="id_incidentes"/>
+      <generator class="foreign">
+        <param name="property">inventario</param>
+      </generator>
+    </id>
+    <one-to-one class="sv.edu.udb.www.model.entity.Inventario" constrained="true" name="inventario"/>
+    <property name="fechaIncidente" type="date">
+      <column length="10" name="fecha_incidente" not-null="true"/>
+    </property>
+    <property name="nombreVehiculo" type="string">
+      <column length="50" name="nombre_vehiculo" not-null="true"/>
+    </property>
+    <property name="descripcionIncidente" type="string">
+      <column length="300" name="descripcion_incidente" not-null="true"/>
+    </property>
+    <property name="descripcionReporte" type="string">
+      <column length="300" name="descripcion_reporte" not-null="true"/>
+    </property>
+    <property name="estatusIncidente" type="string">
+      <column length="50" name="estatus_incidente" not-null="true"/>
+    </property>
+    <property name="imagenIncidentes" type="binary">
+      <column name="imagen_incidentes" not-null="true"/>
+    </property>
+    <property name="idRegistroVehiculo" type="int">
+      <column name="id_registro_vehiculo" not-null="true"/>
+    </property>
+    <property name="idInventario" type="int">
+      <column name="id_inventario" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

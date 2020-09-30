@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-27-2020 09:55:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="proyecto" name="sv.edu.udb.www.model.entity.RegistroProveedor" optimistic-lock="version" table="registro_proveedor">
+    <id name="idRegistroProveedor" type="java.lang.Integer">
+      <column name="id_registro_proveedor"/>
+      <generator class="foreign">
+        <param name="property">proveedores</param>
+      </generator>
+    </id>
+    <one-to-one class="sv.edu.udb.www.model.entity.Proveedores" constrained="true" name="proveedores"/>
+    <property name="nombreComercial" type="string">
+      <column length="50" name="nombre_comercial" not-null="true"/>
+    </property>
+    <property name="telefono" type="int">
+      <column name="telefono" not-null="true" unique="true"/>
+    </property>
+    <property name="direccion" type="string">
+      <column length="300" name="direccion" not-null="true"/>
+    </property>
+    <property name="municipio" type="string">
+      <column length="300" name="municipio" not-null="true"/>
+    </property>
+    <property name="departamento" type="string">
+      <column length="50" name="departamento" not-null="true"/>
+    </property>
+    <property name="pais" type="string">
+      <column length="50" name="pais" not-null="true"/>
+    </property>
+    <property name="personaContacto" type="string">
+      <column length="50" name="persona_contacto" not-null="true"/>
+    </property>
+    <property name="telefonoContacto" type="int">
+      <column name="telefono_contacto" not-null="true"/>
+    </property>
+    <property name="idProveedores" type="int">
+      <column name="id_proveedores" not-null="true"/>
+    </property>
+    <property name="correoConacto" type="string">
+      <column length="50" name="correo_conacto" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-27-2020 09:55:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="proyecto" name="sv.edu.udb.www.model.entity.RegistroVehiculo" optimistic-lock="version" table="registro_vehiculo">
+    <id name="idRegistroVehiculo" type="java.lang.Integer">
+      <column name="id_registro_vehiculo"/>
+      <generator class="foreign">
+        <param name="property">servicios</param>
+      </generator>
+    </id>
+    <many-to-one class="sv.edu.udb.www.model.entity.RegistroVehiculo" fetch="select" name="registroVehiculo">
+      <column name="id_compania_seguro" not-null="true"/>
+    </many-to-one>
+    <one-to-one class="sv.edu.udb.www.model.entity.Servicios" constrained="true" name="servicios"/>
+    <property name="nombreVehiculo" type="string">
+      <column length="50" name="nombre_vehiculo" not-null="true"/>
+    </property>
+    <property name="marcaVehiculo" type="string">
+      <column length="50" name="marca_vehiculo" not-null="true"/>
+    </property>
+    <property name="modeloVehiculo" type="string">
+      <column length="50" name="modelo_vehiculo" not-null="true"/>
+    </property>
+    <property name="anoVehiulo" type="date">
+      <column length="0" name="ano_vehiulo" not-null="true"/>
+    </property>
+    <property name="statusInicialVehiculo" type="string">
+      <column length="50" name="status_inicial_vehiculo" not-null="true"/>
+    </property>
+    <property name="fechaRegistroVehiculo" type="date">
+      <column length="10" name="fecha_registro_vehiculo" not-null="true"/>
+    </property>
+    <property name="medidaUso" type="string">
+      <column length="50" name="medida_uso" not-null="true"/>
+    </property>
+    <property name="nombreTaller" type="string">
+      <column length="50" name="nombre_taller" not-null="true"/>
+    </property>
+    <property name="companiaSeguro" type="string">
+      <column length="300" name="compania_seguro" not-null="true"/>
+    </property>
+    <property name="numeroSerie" type="int">
+      <column name="numero_serie" not-null="true"/>
+    </property>
+    <property name="polizaRegistro" type="int">
+      <column name="poliza_registro" not-null="true"/>
+    </property>
+    <property name="placa" type="int">
+      <column name="placa" not-null="true" unique="true"/>
+    </property>
+    <property name="color" type="string">
+      <column length="30" name="color" not-null="true"/>
+    </property>
+    <property name="vigenciaPoliza" type="date">
+      <column length="10" name="vigencia_poliza" not-null="true"/>
+    </property>
+    <property name="idInventario" type="int">
+      <column name="id_inventario" not-null="true"/>
+    </property>
+    <property name="idTallerMecanico" type="int">
+      <column name="id_taller_mecanico" not-null="true"/>
+    </property>
+    <one-to-one class="sv.edu.udb.www.model.entity.GastosAdicionales" name="gastosAdicionales"/>
+    <set fetch="select" inverse="true" lazy="true" name="registroVehiculos" table="registro_vehiculo">
+      <key>
+        <column name="id_compania_seguro" not-null="true"/>
+      </key>
+      <one-to-many class="sv.edu.udb.www.model.entity.RegistroVehiculo"/>
+    </set>
+    <one-to-one class="sv.edu.udb.www.model.entity.Recordatorio" name="recordatorio"/>
+  </class>
+</hibernate-mapping>

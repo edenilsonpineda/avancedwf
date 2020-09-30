@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-27-2020 09:55:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="proyecto" name="sv.edu.udb.www.model.entity.Servicios" optimistic-lock="version" table="servicios">
+    <id name="idServicios" type="java.lang.Integer">
+      <column name="id_servicios"/>
+      <generator class="foreign">
+        <param name="property">catalogo</param>
+      </generator>
+    </id>
+    <one-to-one class="sv.edu.udb.www.model.entity.Catalogo" constrained="true" name="catalogo"/>
+    <property name="fehaInicio" type="date">
+      <column length="10" name="feha_inicio" not-null="true"/>
+    </property>
+    <property name="horaInicio" type="time">
+      <column length="8" name="hora_inicio" not-null="true"/>
+    </property>
+    <property name="fechaTerminacion" type="date">
+      <column length="10" name="fecha_terminacion" not-null="true"/>
+    </property>
+    <property name="horaTerminacion" type="time">
+      <column length="8" name="hora_terminacion" not-null="true"/>
+    </property>
+    <property name="nombreVehiculo" type="string">
+      <column length="30" name="nombre_vehiculo" not-null="true"/>
+    </property>
+    <property name="horometro" type="int">
+      <column name="horometro" not-null="true" unique="true"/>
+    </property>
+    <property name="servicio" type="string">
+      <column length="300" name="servicio" not-null="true"/>
+    </property>
+    <property name="costoReferencias" type="long">
+      <column name="costo_referencias" not-null="true" precision="10" scale="0"/>
+    </property>
+    <property name="costoManoObra" type="long">
+      <column name="costo_mano_obra" not-null="true" precision="10" scale="0"/>
+    </property>
+    <property name="costoTotal" type="long">
+      <column name="costo_total" not-null="true" precision="10" scale="0"/>
+    </property>
+    <property name="referencia" type="string">
+      <column length="30" name="referencia" not-null="true"/>
+    </property>
+    <property name="tipoMantenimiento" type="string">
+      <column length="30" name="tipo_mantenimiento" not-null="true"/>
+    </property>
+    <property name="companiaSeguro" type="string">
+      <column length="300" name="compania_seguro" not-null="true"/>
+    </property>
+    <property name="proveedorNombre" type="string">
+      <column length="50" name="proveedor_nombre" not-null="true"/>
+    </property>
+    <property name="comentarios" type="string">
+      <column length="300" name="comentarios" not-null="true"/>
+    </property>
+    <property name="idProveedores" type="int">
+      <column name="id_proveedores" not-null="true"/>
+    </property>
+    <property name="idCatalogo" type="int">
+      <column name="id_catalogo" not-null="true"/>
+    </property>
+    <property name="idRegistroVehiculo" type="int">
+      <column name="id_registro_vehiculo" not-null="true"/>
+    </property>
+    <one-to-one class="sv.edu.udb.www.model.entity.Proveedores" name="proveedores"/>
+    <one-to-one class="sv.edu.udb.www.model.entity.RegistroVehiculo" name="registroVehiculo"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-27-2020 09:55:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="proyecto" name="sv.edu.udb.www.model.entity.GastosAdicionales" optimistic-lock="version" table="gastos_adicionales">
+    <id name="idGastosAdicionales" type="java.lang.Integer">
+      <column name="id_gastos_adicionales"/>
+      <generator class="foreign">
+        <param name="property">registroVehiculo</param>
+      </generator>
+    </id>
+    <one-to-one class="sv.edu.udb.www.model.entity.RegistroVehiculo" constrained="true" name="registroVehiculo"/>
+    <property name="nombreVehiculo" type="string">
+      <column length="50" name="nombre_vehiculo" not-null="true"/>
+    </property>
+    <property name="idInventario" type="int">
+      <column name="id_inventario" not-null="true" unique="true"/>
+    </property>
+    <property name="concepto" type="string">
+      <column length="50" name="concepto" not-null="true"/>
+    </property>
+    <property name="monto" type="long">
+      <column name="monto" not-null="true" precision="10" scale="0"/>
+    </property>
+    <property name="proveedor" type="string">
+      <column length="50" name="proveedor" not-null="true"/>
+    </property>
+    <property name="nombreUsuario" type="string">
+      <column length="50" name="nombre_usuario" not-null="true"/>
+    </property>
+    <property name="idRegistroVehiculo" type="int">
+      <column name="id_registro_vehiculo" not-null="true"/>
+    </property>
+    <property name="idUsuario" type="int">
+      <column name="id_usuario" not-null="true"/>
+    </property>
+    <property name="comentario" type="string">
+      <column length="300" name="comentario" not-null="true"/>
+    </property>
+    <one-to-one class="sv.edu.udb.www.model.entity.Inventario" name="inventario"/>
+    <one-to-one class="sv.edu.udb.www.model.entity.Usuario" name="usuario"/>
+  </class>
+</hibernate-mapping>
